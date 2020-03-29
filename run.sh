@@ -1,4 +1,5 @@
 #! /bin/bash
+FILE_NAME=$1
 
-gcc -o basic_functions basic_functions.c && ./basic_functions
-rm basic_functions
+gcc -o $FILE_NAME $FILE_NAME.c && ./$FILE_NAME
+rm $FILE_NAME

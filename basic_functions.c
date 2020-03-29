@@ -3,8 +3,10 @@
 
 unsigned char is_even(int);
 unsigned char is_odd(int);
-int cube(int);
 int square(int);
+int cube(int);
+int greatest_common_divisor(int, int);
+int lcm(int, int);
 double simple_interest(int, int, int);
 double compound_interest(int, int, int);
 double convert_fahrenheit_to_centigrade(float);
@@ -30,6 +32,25 @@ int square(int number)
 int cube(int number)
 { 
   return square(number) * number;
+}
+
+int greatest_common_divisor(int number1, int number2)
+{
+  int gcd = number1 > number2 ? number2 + 1 : number1 + 1;
+  while(gcd > 0)
+  { 
+    gcd = gcd - 1;
+    if(number1 % gcd == 0 && number2 % gcd == 0)
+    {
+      return gcd;
+    }
+  }
+  return 1;
+}
+
+int lcm(int number1, int number2)
+{
+  return number1 * number2 / greatest_common_divisor(number1, number2);
 }
 
 double simple_interest(int principle, int rate, int time)
@@ -73,7 +94,7 @@ double average_of_three(float num1, float num2, float num3)
 
 int main(void)
 {
-  int num, principle, rate, time;
+  int num, principle, rate, time, number1, number2;
   float num1, num2, num3, temp;
   printf("Enter a number for isEven: ");
   scanf("%d",&num);
@@ -90,6 +111,16 @@ int main(void)
   printf("Enter a number for cube: ");
   scanf("%d",&num);
   printf("Cube of the number is: %d\n",cube(num));
+  
+  printf("Enter two numbers for greatest_common_divisor: ");
+  scanf("%d",&number1);
+  scanf("%d",&number2);
+  printf("greatest_common_divisor of the numbers is: %d\n",greatest_common_divisor(number1, number2));
+
+  printf("Enter two numbers for lcm: ");
+  scanf("%d",&number1);
+  scanf("%d",&number2);
+  printf("lcm of the numbers is: %d\n",lcm(number1, number2));
 
   printf("To calculate simple interest\n");
   printf("Enter principle amount: ");
