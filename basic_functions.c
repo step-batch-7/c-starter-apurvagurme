@@ -1,14 +1,16 @@
 #include<stdio.h>
+#include<math.h>
 
 unsigned char is_even(int);
 unsigned char is_odd(int);
 int cube(int);
 int square(int);
-int simple_interest(int, int, int);
+double simple_interest(int, int, int);
+double compound_interest(int, int, int);
 double convert_fahrenheit_to_centigrade(float);
 double convert_centigrade_to_fahrenheit(float);
-float greatest_of_three(float, float, float);
-float average_of_three(float, float, float);
+int greatest_of_three(float, float, float);
+double average_of_three(float, float, float);
 
 unsigned char is_even(int number)
 {
@@ -30,10 +32,15 @@ int cube(int number)
   return square(number) * number;
 }
 
-int simple_interest(int principle, int rate, int time)
+double simple_interest(int principle, int rate, int time)
 {
   return (principle * rate * time) / 100;
 }
+
+double compound_interest(int principle, int rate, int time)
+{
+  return principle * pow((1 + rate / 100), time);
+} 
 
 double convert_fahrenheit_to_centigrade(float fahrenheit)
 {
@@ -45,7 +52,7 @@ double convert_centigrade_to_fahrenheit(float celsius)
   return (celsius * 9 / 5) + 32;
 }
 
-float greatest_of_three(float num1, float num2, float num3)
+int greatest_of_three(float num1, float num2, float num3)
 {
   float greatest = num1;
   if(num2 > num1)
@@ -59,7 +66,7 @@ float greatest_of_three(float num1, float num2, float num3)
   return greatest;
 }
 
-float average_of_three(float num1, float num2, float num3)
+double average_of_three(float num1, float num2, float num3)
 {
   return (num1 + num2 + num3) / 3;
 }
@@ -91,7 +98,16 @@ int main(void)
   scanf("%d",&rate);
   printf("Enter time period: ");
   scanf("%d",&time);
-  printf("Simple interest is: %d\n",simple_interest(principle, rate, time));
+  printf("Simple interest is: %lf\n",simple_interest(principle, rate, time));
+
+  printf("To calculate compound interest\n");
+  printf("Enter principle amount: ");
+  scanf("%d",&principle);
+  printf("Enter rate of interest: ");
+  scanf("%d",&rate);
+  printf("Enter time period: ");
+  scanf("%d",&time);
+  printf("Compound interest is: %lf\n",compound_interest(principle, rate, time));
 
   printf("Enter a number for convert_fahrenheit_to_centigrade: ");
   scanf("%f",&temp);
@@ -105,13 +121,13 @@ int main(void)
   scanf("%f",&num1);
   scanf("%f",&num2);
   scanf("%f",&num3);
-  printf("Greatest number is: %f\n",greatest_of_three(num1, num2, num3));
+  printf("Greatest number is: %d\n",greatest_of_three(num1, num2, num3));
 
   printf("Enter three numbers for average: ");
   scanf("%f",&num1);
   scanf("%f",&num2);
   scanf("%f",&num3);
-  printf("Average is: %f\n",average_of_three(num1, num2, num3));
+  printf("Average is: %lf\n",average_of_three(num1, num2, num3));
 
   return 0;
 }
