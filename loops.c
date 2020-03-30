@@ -37,27 +37,24 @@ int fibonacci(int num)
     return 0;
 }
 
+int series_of_num_with_step(int from, int to, int step)
+{
+  for(int index = from; index <= to; index = index + step)
+  {
+    printf("%d\n", index);
+  }
+  return 0;
+}
+
 int odd_numbers_from_1(int edge)
 { 
-  for(int index = 1; index <= edge; index++)
-  {
-    if(index % 2 != 0)
-    {
-    printf("%d\n", index);
-    }
-  }
+  series_of_num_with_step(1, edge, 2);
   return 0;
 }
 
 int even_numbers(int edge)
 { 
-  for(int index = 1; index <= edge; index++)
-  {
-    if(index % 2 == 0)
-    {
-    printf("%d\n", index);
-    }
-  }
+  series_of_num_with_step(2, edge, 2);
   return 0;
 }
 
@@ -93,13 +90,7 @@ int product_of_n_numbers(from, to)
 
 int odd_numbers_from_n(from, to)
 {
-  for(int index = from; index <= to; index++)
-  {
-    if(index % 2 != 0)
-    {
-      printf("%d\n", index);
-    }
-  }
+  series_of_num_with_step(from, to, 2);
   return 0;
 }
 
