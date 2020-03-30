@@ -24,24 +24,16 @@ int factorial(int number)
 
 int fibonacci(int num)
 {
-    int first_num = 0;
-    int second_num = 1;
-    int fibo;
-    printf("0\n");
-    if(num > 0) 
-    {
-    printf("1\n");
-        for(int index = 1; index <= num;)
-        {
-            fibo = first_num + second_num;
-            first_num = second_num;
-            second_num = fibo;
-            index = fibo;
-            if(fibo <= num){
-            printf("%d\n", fibo);
-            }
-        }
-    }
+  int previous_num = 0;
+  int current_num = 1;
+  int next;
+    for(int index = 0; index < num; index++)
+      {
+        next = previous_num + current_num;
+        printf("%d\n", previous_num);
+        previous_num = current_num;
+        current_num = next;
+      }
     return 0;
 }
 
