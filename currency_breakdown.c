@@ -16,14 +16,14 @@ int main(void)
   printf("Enter the total amount: ");
   scanf("%d", &amount);
 
-  amount = currency_breakdown(2000, amount);
-  amount = currency_breakdown(500, amount);
-  amount = currency_breakdown(200, amount);
-  amount = currency_breakdown(100, amount);
-  amount = currency_breakdown(50, amount);
-  amount = currency_breakdown(10, amount);
-  amount = currency_breakdown(5, amount);
-  amount = currency_breakdown(1, amount);
+  remaining_amt = currency_breakdown(2000, amount);
+  remaining_amt = currency_breakdown(500, remaining_amt);
+  remaining_amt = currency_breakdown(200, remaining_amt);
+  remaining_amt = currency_breakdown(100, remaining_amt);
+  remaining_amt = currency_breakdown(50, remaining_amt);
+  remaining_amt = currency_breakdown(10, remaining_amt);
+  remaining_amt = currency_breakdown(5, remaining_amt);
+  remaining_amt = currency_breakdown(1, remaining_amt);
 
   return 0;
 }
